@@ -1,0 +1,71 @@
+Package smile;
+		  
+		  
+
+Helpers
+  /*letter = [['a' .. 'z'] + ['A' .. 'Z']] ;
+  digit = ['0'..'9'];
+ */
+  cr = 13;
+  lf = 10;
+  /*
+  all = [0 .. 127];
+  not_cr_lf = [all - [cr + lf]];
+  any_charater = [0x0 .. 0xfffff];
+  
+  not_star = [all -'*'];
+  not_star_slash = [not_star -'/'];
+  
+  nl = [cr + lf];
+  
+  escape_sequence = '\' ( ''' | '"'  | '\' | '0' | 'a' | 'b' | 'f' | 'n' | 'r' | 't' | 'v' );
+  s_char = [all -['"' + ['\' + [10 + 13]]]] | escape_sequence;
+  s_char_sequence = s_char+;
+  */
+  
+Tokens
+
+
+  nextindex = ':-/';
+  previndex = ':-\';
+  
+  inc = ':-)';
+  dec = ':-(';
+  
+  whileint = 'o_O';
+  whileend = 'O_o';
+  
+  print = ';-)';
+  
+  printchar = ':-@';
+  
+  if = 'P-|';
+  endif = 'P-\';
+  
+  new_line = cr | lf | cr lf;
+
+  blank = ' '* | 9;
+  
+
+  
+Ignored Tokens
+  blank, new_line;
+  
+
+Productions
+
+	stmtlist = 	stmt stmtlist
+			|   {empty}
+			;
+	stmt = 
+			  {nextindex} 		nextindex
+			| {previndex}  		previndex
+			| {inc}				inc
+			| {dec}				dec
+			| {print}			print
+			| {printchar}		printchar
+			| {while}			[start]:whileint stmtlist [end]:whileend
+			| {if}				if stmtlist endif
+			;
+			  
+			  
