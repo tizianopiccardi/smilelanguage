@@ -38,6 +38,7 @@ Tokens
   print = ';-)';
   
   printchar = ':-@';
+  inputchar = ':-O';
   
   if = 'P-|';
   endif = 'P-\';
@@ -66,6 +67,7 @@ Productions
 			| {printchar}		printchar
 			| {while}			[start]:whileint stmtlist [end]:whileend
 			| {if}				if stmtlist endif
+			| {inputchar}       inputchar
 			;
 			  
 			  

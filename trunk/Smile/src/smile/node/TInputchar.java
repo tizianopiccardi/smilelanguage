@@ -5,16 +5,16 @@ package smile.node;
 import smile.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TPrint extends Token
+public final class TInputchar extends Token
 {
-    public TPrint()
+    public TInputchar()
     {
-        super.setText(";-)");
+        super.setText(":-O");
     }
 
-    public TPrint(int line, int pos)
+    public TInputchar(int line, int pos)
     {
-        super.setText(";-)");
+        super.setText(":-O");
         setLine(line);
         setPos(pos);
     }
@@ -22,17 +22,17 @@ public final class TPrint extends Token
     @Override
     public Object clone()
     {
-      return new TPrint(getLine(), getPos());
+      return new TInputchar(getLine(), getPos());
     }
 
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTPrint(this);
+        ((Analysis) sw).caseTInputchar(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TPrint text.");
+        throw new RuntimeException("Cannot change TInputchar text.");
     }
 }
