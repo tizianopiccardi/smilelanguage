@@ -1,10 +1,19 @@
 package smile;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Vector;
 
-import smile.parser.*;
-import smile.lexer.*;
-import smile.analysis.*;
-import smile.node.*;
+import smile.analysis.DepthFirstAdapter;
+import smile.node.ADecStmt;
+import smile.node.AIfStmt;
+import smile.node.AIncStmt;
+import smile.node.AInputcharStmt;
+import smile.node.ANextindexStmt;
+import smile.node.APrevindexStmt;
+import smile.node.APrintStmt;
+import smile.node.APrintcharStmt;
+import smile.node.AStmtlist;
+import smile.node.AWhileStmt;
 
 
 
@@ -62,6 +71,21 @@ public class Engine extends DepthFirstAdapter {
 			index = 0;
 			node.getStmtlist().apply(this);
 		}
+	}
+	
+	/** Input di un numero da tastiera
+	 * 
+	 */
+	public void caseAInputcharStmt(AInputcharStmt node) {
+		
+		try {
+		
+			BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+			int input = Integer.parseInt(r.readLine());
+		
+			env.set(index, input);
+		}
+		catch (Exception e) {/*se salta qualcosa no problem... no input*/}
 	}
 	
 }

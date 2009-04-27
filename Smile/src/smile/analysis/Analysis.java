@@ -22,6 +22,7 @@ public interface Analysis extends Switch
     void caseAPrintcharStmt(APrintcharStmt node);
     void caseAWhileStmt(AWhileStmt node);
     void caseAIfStmt(AIfStmt node);
+    void caseAInputcharStmt(AInputcharStmt node);
 
     void caseTNextindex(TNextindex node);
     void caseTPrevindex(TPrevindex node);
@@ -31,6 +32,7 @@ public interface Analysis extends Switch
     void caseTWhileend(TWhileend node);
     void caseTPrint(TPrint node);
     void caseTPrintchar(TPrintchar node);
+    void caseTInputchar(TInputchar node);
     void caseTIf(TIf node);
     void caseTEndif(TEndif node);
     void caseTNewLine(TNewLine node);

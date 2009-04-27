@@ -5,45 +5,45 @@ package smile.node;
 import smile.analysis.*;
 
 @SuppressWarnings("nls")
-public final class APrevindexStmt extends PStmt
+public final class AInputcharStmt extends PStmt
 {
-    private TPrevindex _previndex_;
+    private TInputchar _inputchar_;
 
-    public APrevindexStmt()
+    public AInputcharStmt()
     {
         // Constructor
     }
 
-    public APrevindexStmt(
-        @SuppressWarnings("hiding") TPrevindex _previndex_)
+    public AInputcharStmt(
+        @SuppressWarnings("hiding") TInputchar _inputchar_)
     {
         // Constructor
-        setPrevindex(_previndex_);
+        setInputchar(_inputchar_);
 
     }
 
     @Override
     public Object clone()
     {
-        return new APrevindexStmt(
-            cloneNode(this._previndex_));
+        return new AInputcharStmt(
+            cloneNode(this._inputchar_));
     }
 
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseAPrevindexStmt(this);
+        ((Analysis) sw).caseAInputcharStmt(this);
     }
 
-    public TPrevindex getPrevindex()
+    public TInputchar getInputchar()
     {
-        return this._previndex_;
+        return this._inputchar_;
     }
 
-    public void setPrevindex(TPrevindex node)
+    public void setInputchar(TInputchar node)
     {
-        if(this._previndex_ != null)
+        if(this._inputchar_ != null)
         {
-            this._previndex_.parent(null);
+            this._inputchar_.parent(null);
         }
 
         if(node != null)
@@ -56,23 +56,23 @@ public final class APrevindexStmt extends PStmt
             node.parent(this);
         }
 
-        this._previndex_ = node;
+        this._inputchar_ = node;
     }
 
     @Override
     public String toString()
     {
         return ""
-            + toString(this._previndex_);
+            + toString(this._inputchar_);
     }
 
     @Override
     void removeChild(@SuppressWarnings("unused") Node child)
     {
         // Remove child
-        if(this._previndex_ == child)
+        if(this._inputchar_ == child)
         {
-            this._previndex_ = null;
+            this._inputchar_ = null;
             return;
         }
 
@@ -83,9 +83,9 @@ public final class APrevindexStmt extends PStmt
     void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
     {
         // Replace child
-        if(this._previndex_ == oldChild)
+        if(this._inputchar_ == oldChild)
         {
-            setPrevindex((TPrevindex) newChild);
+            setInputchar((TInputchar) newChild);
             return;
         }
 

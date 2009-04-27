@@ -261,4 +261,25 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         }
         outAIfStmt(node);
     }
+
+    public void inAInputcharStmt(AInputcharStmt node)
+    {
+        defaultIn(node);
+    }
+
+    public void outAInputcharStmt(AInputcharStmt node)
+    {
+        defaultOut(node);
+    }
+
+    @Override
+    public void caseAInputcharStmt(AInputcharStmt node)
+    {
+        inAInputcharStmt(node);
+        if(node.getInputchar() != null)
+        {
+            node.getInputchar().apply(this);
+        }
+        outAInputcharStmt(node);
+    }
 }

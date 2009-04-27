@@ -7,10 +7,9 @@ import java.io.StringReader;
 
 import org.apache.commons.io.FileUtils;
 
-import smile.parser.*;
-import smile.lexer.*;
-import smile.analysis.*;
-import smile.node.*;
+import smile.lexer.Lexer;
+import smile.node.Start;
+import smile.parser.Parser;
 
 public class Main {
 

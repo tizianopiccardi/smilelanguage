@@ -235,6 +235,12 @@ public class Parser
 			push(goTo(1), list, false);
 		    }
 		    break;
+                    case 10: /* reduce AInputcharStmt */
+		    {
+			ArrayList list = new10();
+			push(goTo(1), list, false);
+		    }
+		    break;
                     }
                     break;
                 case ACCEPT:
@@ -466,36 +472,57 @@ public class Parser
 
 
 
+    @SuppressWarnings("unchecked")
+    ArrayList new10() /* reduce AInputcharStmt */
+    {
+        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+
+        @SuppressWarnings("unused") ArrayList nodeArrayList1 = pop();
+        PStmt pstmtNode1;
+        {
+            // Block
+        TInputchar tinputcharNode2;
+        tinputcharNode2 = (TInputchar)nodeArrayList1.get(0);
+
+        pstmtNode1 = new AInputcharStmt(tinputcharNode2);
+        }
+	nodeList.add(pstmtNode1);
+        return nodeList;
+    }
+
+
+
     private static int[][][] actionTable;
 /*      {
-			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, },
+			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, {9, SHIFT, 9}, },
 			{{-1, REDUCE, 2}, },
 			{{-1, REDUCE, 3}, },
 			{{-1, REDUCE, 4}, },
 			{{-1, REDUCE, 5}, },
-			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, },
+			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, {9, SHIFT, 9}, },
 			{{-1, REDUCE, 6}, },
 			{{-1, REDUCE, 7}, },
-			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, },
-			{{-1, ERROR, 9}, {10, ACCEPT, -1}, },
-			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, },
-			{{-1, ERROR, 11}, {5, SHIFT, 14}, },
-			{{-1, ERROR, 12}, {9, SHIFT, 15}, },
+			{{-1, REDUCE, 10}, },
+			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, {9, SHIFT, 9}, },
+			{{-1, ERROR, 10}, {11, ACCEPT, -1}, },
+			{{-1, REDUCE, 1}, {0, SHIFT, 1}, {1, SHIFT, 2}, {2, SHIFT, 3}, {3, SHIFT, 4}, {4, SHIFT, 5}, {6, SHIFT, 6}, {7, SHIFT, 7}, {8, SHIFT, 8}, {9, SHIFT, 9}, },
+			{{-1, ERROR, 12}, {5, SHIFT, 15}, },
+			{{-1, ERROR, 13}, {10, SHIFT, 16}, },
 			{{-1, REDUCE, 0}, },
 			{{-1, REDUCE, 8}, },
 			{{-1, REDUCE, 9}, },
         };*/
     private static int[][][] gotoTable;
 /*      {
-			{{-1, 9}, {5, 11}, {8, 12}, {10, 13}, },
-			{{-1, 10}, },
+			{{-1, 10}, {5, 12}, {9, 13}, {11, 14}, },
+			{{-1, 11}, },
         };*/
     private static String[] errorMessages;
 /*      {
-			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', ';-)', ':-@', 'P-|', EOF",
-			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', 'O_o', ';-)', ':-@', 'P-|', 'P-\', EOF",
-			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', 'O_o', ';-)', ':-@', 'P-|'",
-			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', ';-)', ':-@', 'P-|', 'P-\'",
+			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', ';-)', ':-@', ':-O', 'P-|', EOF",
+			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', 'O_o', ';-)', ':-@', ':-O', 'P-|', 'P-\', EOF",
+			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', 'O_o', ';-)', ':-@', ':-O', 'P-|'",
+			"expecting: ':-/', ':-\', ':-)', ':-(', 'o_O', ';-)', ':-@', ':-O', 'P-|', 'P-\'",
 			"expecting: EOF",
 			"expecting: 'O_o'",
 			"expecting: 'P-\'",
@@ -503,7 +530,7 @@ public class Parser
         };*/
     private static int[] errors;
 /*      {
-			0, 1, 1, 1, 1, 2, 1, 1, 3, 4, 1, 5, 6, 7, 1, 1, 
+			0, 1, 1, 1, 1, 2, 1, 1, 1, 3, 4, 1, 5, 6, 7, 1, 1, 
         };*/
 
     static 

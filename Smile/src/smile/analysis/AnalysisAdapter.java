@@ -119,6 +119,11 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
+    public void caseAInputcharStmt(AInputcharStmt node)
+    {
+        defaultCase(node);
+    }
+
     public void caseTNextindex(TNextindex node)
     {
         defaultCase(node);
@@ -155,6 +160,11 @@ public class AnalysisAdapter implements Analysis
     }
 
     public void caseTPrintchar(TPrintchar node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseTInputchar(TInputchar node)
     {
         defaultCase(node);
     }
